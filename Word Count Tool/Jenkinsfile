@@ -12,12 +12,17 @@ pipeline {
         }
       
       stage('Execute Repo') {
-            steps {
-                sh '''
-                 'echo "myfile.txt" | python3 Word Count Tool/main.py'
-                '''
-              
-            }
+    steps {
+        // Option A: Using quotes (Easy fix)
+        sh 'echo "test.txt" | python3 "Word Count Tool/main.py"'
+        
+        // OR Option B: Using 'dir' (Cleaner fix)
+        /*
+        dir('Word Count Tool') {
+            sh 'echo "test.txt" | python3 main.py'
         }
+        */
+    }
+
     }
 }
