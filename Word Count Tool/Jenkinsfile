@@ -1,0 +1,24 @@
+pipeline {
+    agent { label 'new-node' }
+    triggers {
+        githubPush()
+    }
+    stages {
+        stage('Git Clone') {
+            steps {
+                git url: "https://github.com/harshada137/Python_Projects.git", branch "main"
+                echo 'Clonning Repo'
+            }
+        }
+      
+      stage('Execute Repo') {
+            steps {
+                sh '''
+                cd Word Count Tool
+                python3 main.py
+                '''
+              
+            }
+        }
+    }
+}
