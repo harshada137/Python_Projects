@@ -14,7 +14,7 @@ pipeline {
       stage('Execute Repo') {
             steps {
                 sh '''
-                python3  "Word Count Tool/word_count.py"
+                python3  "main.py"
                 '''
               
             }
