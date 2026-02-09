@@ -1,0 +1,29 @@
+pipeline {
+    agent { label 'Yor-node-name' } 
+    # or use **agent any** if you dont have any node or agent
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git branch: 'main', url: 'https://github.com/harshada137/Python_Projects.git'
+            }
+        }
+
+        stage('Run To-Do App') {
+            steps {
+                dir('ToDo_With_Python') {
+                    sh '''
+                    # 1. Verify Python
+                    python3 --version
+                    
+                    # 2. Feed the To-Do App: 
+                    printf "1\nFinish Task 3.2\n2\n4\n" | python3 main.py
+                    
+                    # 3. Task COmpleted
+                    echo "Task Is COmpleted"
+                    '''
+                }
+            }
+        }
+    }
+}
