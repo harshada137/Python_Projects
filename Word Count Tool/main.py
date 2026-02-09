@@ -13,7 +13,10 @@ def word_count(filename):
 
 def main():
     print("=== Word Count Tool ===")
-    filename = input("Enter file name: ")
+
+    # Manually defined file name
+    filename = "sample.txt"
+
     word_count(filename)
 
 
