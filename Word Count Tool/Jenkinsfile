@@ -14,7 +14,7 @@ pipeline {
       stage('Execute Repo') {
     steps {
         // Option A: Using quotes (Easy fix)
-        sh 'echo "test.txt" | python3 "Word Count Tool/main.py"'
+        sh  'python3 "Word Count Tool/main.py"'
         
         // OR Option B: Using 'dir' (Cleaner fix)
         /*
